@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>design-skills | Manya Singh</title>
+<meta name="description" content="Claude skills for designers: slides, UX copy review and design handoff.">
+<link rel="icon" href="favicon.svg">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--color-paper); color: var(--color-ink); font: var(--weight-regular) var(--text-base)/var(--leading-body) var(--font-sans); -webkit-font-smoothing: antialiased; }
+  a { color: var(--color-accent); }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--space-5); }
+  .top { display: flex; justify-content: space-between; align-items: center; padding: var(--space-5) 0; font-size: var(--text-sm); }
+  .top a { color: var(--color-ink); text-decoration: none; }
+  .top .home { font-family: var(--font-serif); font-size: var(--text-md); }
+
+  .intro { padding: var(--space-7) 0 var(--space-6); display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-6); align-items: end; }
+  .intro h1 { font-family: var(--font-serif); font-weight: 400; font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1; letter-spacing: -0.02em; margin: 0; }
+  .intro p { margin: 0; color: var(--color-ink-muted); font-size: var(--text-md); line-height: var(--leading-snug); max-width: 32ch; }
+
+  /* The slides skill leads, because its output is the most visual. */
+  .reel { position: relative; margin-bottom: var(--space-4); }
+  .track { display: flex; gap: var(--space-4); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: var(--space-3); scrollbar-width: thin; }
+  .track img { flex: 0 0 min(440px, 80vw); aspect-ratio: 16 / 9; width: min(440px, 80vw); border-radius: var(--radius-md); border: 1px solid var(--color-line); scroll-snap-align: start; background: var(--color-surface); }
+  .reel-bar { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); font-size: var(--text-sm); color: var(--color-ink-muted); }
+  .seg { display: inline-flex; border: 1px solid var(--color-line); border-radius: var(--radius-pill); padding: 3px; background: var(--color-surface); }
+  .seg button { border: 0; background: none; font: inherit; color: var(--color-ink-muted); padding: 3px 12px; border-radius: var(--radius-pill); cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--color-ink); color: var(--color-paper); }
+
+  .skill { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: var(--space-6); padding: var(--space-7) 0; border-top: 1px solid var(--color-line); }
+  .skill h2 { font-family: var(--font-serif); font-weight: 400; font-size: var(--text-xl); line-height: var(--leading-tight); margin: 0 0 var(--space-2); }
+  .skill .what { color: var(--color-ink-muted); font-size: var(--text-sm); margin: 0 0 var(--space-4); }
+  .skill .links { display: flex; flex-direction: column; gap: var(--space-1); font-size: var(--text-sm); }
+  .body { min-width: 0; }
+  .body p { margin: 0 0 var(--space-4); max-width: 62ch; }
+
+  table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius-md); overflow: hidden; }
+  th, td { text-align: left; padding: var(--space-3); border-bottom: 1px solid var(--color-line); vertical-align: top; }
+  th { font-weight: var(--weight-semibold); }
+  td.before { color: var(--color-reject); }
+  td.after { color: var(--color-approve); }
+  tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+
+  .checks { columns: 2; column-gap: var(--space-6); padding: 0; margin: 0; list-style: none; font-size: var(--text-sm); }
+  .checks li { break-inside: avoid; padding: var(--space-2) 0; border-bottom: 1px solid var(--color-line); }
+
+  .install { padding: var(--space-7) 0 var(--space-8); border-top: 1px solid var(--color-line); display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: var(--space-6); }
+  .install h2 { font-family: var(--font-serif); font-weight: 400; font-size: var(--text-xl); margin: 0; }
+  pre { margin: 0; background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius-md); padding: var(--space-4); overflow-x: auto; font-size: var(--text-sm); line-height: var(--leading-snug); }
+
+  @media (max-width: 820px) {
+    .intro, .skill, .install { grid-template-columns: 1fr; gap: var(--space-4); }
+    .checks { columns: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="top"><a class="home" href="https://github.com/manya-5">manya-5</a><a href="https://github.com/manya-5/design-skills">Source</a></nav>
+  <header class="intro">
+    <h1>design-skills</h1>
+    <p>Claude skills for the parts of design work that are tedious but have to be right.</p>
+  </header>
+
+  <section class="skill" id="slides">
+    <div>
+      <h2>slides</h2>
+      <p class="what">Notes in, a checked PowerPoint deck out. Every text box is measured before you see it, and nothing is ever shrunk to fit.</p>
+      <div class="links">
+        <a href="https://github.com/manya-5/design-skills/tree/main/skills/slides">Skill files</a>
+        <a href="https://github.com/manya-5/design-skills/raw/main/skills/slides/examples/example-light.pptx">Example deck (.pptx)</a>
+      </div>
+    </div>
+    <div class="body">
+      <div class="reel">
+        <div class="track" id="track" tabindex="0" aria-label="Example slides, scroll sideways"></div>
+      </div>
+      <div class="reel-bar">
+        <span>The example deck, built from <a href="https://github.com/manya-5/design-skills/blob/main/skills/slides/examples/plan.json">one plan file</a>.</span>
+        <div class="seg" role="group" aria-label="Slide theme">
+          <button type="button" data-mode="light" aria-pressed="true">Light</button>
+          <button type="button" data-mode="dark" aria-pressed="false">Dark</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skill" id="ux-copy">
+    <div>
+      <h2>ux-copy</h2>
+      <p class="what">Reviews buttons, errors and empty states. A script catches the mechanical problems, then Claude reviews the rest by hand.</p>
+      <div class="links"><a href="https://github.com/manya-5/design-skills/tree/main/skills/ux-copy">Skill files</a></div>
+    </div>
+    <div class="body">
+      <div class="table-scroll">
+      <table>
+        <thead><tr><th>Before</th><th>After</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td class="before">Submit</td><td class="after">Send invite</td><td>Name the result, not the mechanism.</td></tr>
+          <tr><td class="before">Oops! Something went wrong.</td><td class="after">Couldn't send the invite. Check the email address and try again.</td><td>Say what happened and what to do next.</td></tr>
+          <tr><td class="before">Save Your Changes</td><td class="after">Save changes</td><td>Sentence case, and fewer words.</td></tr>
+          <tr><td class="before">We have sent you an email, please check it.</td><td class="after">Check your inbox for a sign-in link.</td><td>Lead with what the person does next.</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="skill" id="design-handoff">
+    <div>
+      <h2>design-handoff</h2>
+      <p class="what">Turns screens into a spec engineers can build from, with every state written down and open questions listed instead of guessed.</p>
+      <div class="links">
+        <a href="https://github.com/manya-5/design-skills/tree/main/skills/design-handoff">Skill files</a>
+        <a href="https://github.com/manya-5/design-skills/blob/main/skills/design-handoff/template.md">The spec template</a>
+      </div>
+    </div>
+    <div class="body">
+      <p>What it checks that mockups usually leave out:</p>
+      <ul class="checks">
+        <li>Empty, loading, error and success states</li>
+        <li>Very long text and missing images</li>
+        <li>Hover, focus, pressed and disabled for every control</li>
+        <li>1 item and 1,000 items</li>
+        <li>Slow networks, retries, leaving mid-way</li>
+        <li>Keyboard order and screen reader labels</li>
+        <li>Text contrast below 4.5:1</li>
+        <li>For AI: what happens before, during, when it's wrong, and undo</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="install">
+    <h2>Install</h2>
+    <div>
+      <pre><code>git clone https://github.com/manya-5/design-skills.git
+cp -r design-skills/skills/* ~/.claude/skills/</code></pre>
+      <p style="font-size: var(--text-sm); color: var(--color-ink-muted); margin: var(--space-3) 0 0;">In the Claude apps, you can also zip a skill's folder and upload it from Settings.</p>
+    </div>
+  </section>
+</div>
+<script>
+  const track = document.getElementById("track");
+  const buttons = document.querySelectorAll(".seg button");
+  function show(mode) {
+    track.innerHTML = "";
+    for (let i = 1; i <= 8; i++) {
+      const img = document.createElement("img");
+      img.src = `slides/${mode}-${i}.png`;
+      img.alt = `Example slide ${i} of 8, ${mode} theme`;
+      img.loading = i > 2 ? "lazy" : "eager";
+      track.append(img);
+    }
+    buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.mode === mode)));
+  }
+  buttons.forEach((b) => b.addEventListener("click", () => show(b.dataset.mode)));
+  show("light");
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{"slides": [
+  {"layout": "title",
+   "title": "Ask before acting",
+   "subtitle": "Patterns for AI features that people can trust and steer",
+   "byline": "Manya Singh, design crit"},
+
+  {"layout": "section", "kicker": "Part 1", "title": "Where trust breaks"},
+
+  {"layout": "bullets",
+   "title": "What goes wrong today",
+   "bullets": [
+     "The assistant acts first and explains later, if at all",
+     "Progress is a spinner, so people can't tell stuck from slow",
+     "There is no way to stop halfway without losing work",
+     "Undo exists, but only for some actions and nobody knows which"
+   ]},
+
+  {"layout": "two-column",
+   "title": "Two ways to ask",
+   "left": {"heading": "Confirm every step",
+            "text": "Safe, but people stop reading after the third prompt and approve everything. The check stops being a check."},
+   "right": {"heading": "Show the plan once",
+             "text": "One preview of everything the assistant will do, with each step editable. People read it because it's the only ask."}},
+
+  {"layout": "stats",
+   "title": "The numbers in the prototype",
+   "stats": [
+     {"value": "1.5s", "label": "Hold to delete", "note": "Long enough to mean it, short enough not to annoy."},
+     {"value": "5s", "label": "Undo window", "note": "The toast timer pauses while the pointer is on it."},
+     {"value": "40%", "label": "Drag to archive", "note": "Past this, letting go archives. Before it, the card springs back."}
+   ]},
+
+  {"layout": "steps",
+   "title": "How a task should run",
+   "steps": [
+     {"heading": "Preview", "text": "Show what will happen, in the user's words, before anything changes."},
+     {"heading": "Approve", "text": "One clear yes or no. Editing a step is also an answer."},
+     {"heading": "Run visibly", "text": "Name each step as it happens and keep Stop in reach."},
+     {"heading": "Report", "text": "Say what changed, what didn't, and how to undo it."}
+   ]},
+
+  {"layout": "quote",
+   "quote": "People trust what they can see coming.",
+   "attribution": "Working principle for this project"},
+
+  {"layout": "closing",
+   "title": "Make the plan the product",
+   "text": "Prototypes and source: github.com/manya-5"}
+]}
